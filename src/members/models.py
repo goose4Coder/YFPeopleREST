@@ -18,8 +18,8 @@ class Member(models.Model):
         return self.name+self.lastname
 
 class Club(models.Model):
-    title= models.CharField(max_length=50)
+    title = models.CharField(max_length=50)
     leader = models.ForeignKey(Member, on_delete=models.PROTECT, blank=False)
-    member = models.ManyToManyField(Member, related_name='%(class)s_of_the_club')
+    member = models.ManyToManyField(Member, related_name='%(class)s_of_the_club', verbose_name="Club members")
     def __str__(self):
         return self.title
